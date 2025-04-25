@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClubHub - User Profile</title>
+    <link rel="stylesheet" href="css/profile.css">
+    <style>
+        .section-content {
+            display: none; /* Initially hide the content */
+            padding-left: 20px; /* Indent the content */
+            margin-top: 10px;
+        }
+        .section-heading {
+            cursor: pointer;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 10px;
+        }
+        .section-heading:last-child {
+            border-bottom: none;
+        }
+        .section-heading h2 {
+            margin: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .section-heading h2::after {
+            content: '\25BE'; /* Down arrow symbol */
+            font-size: 1.2em;
+        }
+        .section-heading.open h2::after {
+            content: '\25B4'; /* Up arrow symbol */
+        }
+        .section-content.open {
+            display: block; /* Show content when open class is applied */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>ClubHub</h1>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#explore-events-section">Explore Events</a></li>
+                <li><a href="#my-clubs-section">My Clubs</a></li>
+                <li><a href="#notifications-section">Notifications</a></li>
+                <li><a href="#settings-section">Settings</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="profile-container">
+        <section id="user-info">
+            <div class="profile-picture">
+                <img src="manirat.png" alt="Profile Picture" width="100" height="100">
+            </div>
+            <div class="user-details">
+                <h2>John Doe</h2>
+                <p>Student ID: 1234567</p>
+                <p>Year of Study: 3rd Year, Computer Science</p>
+            </div>
+        </section>
+
+        <div class="section-heading open" data-section="my-events">
+            <h2>My Events</h2>
+        </div>
+        <section id="my-events" class="section-content open">
+            <div id="upcoming-events">
+                <h3>Upcoming Events</h3>
+                <ul class="event-list">
+                    <li class="event-item">
+                        <h4>Coding Workshop: Advanced Python</h4>
+                        <p>Date: 2025-04-18, Time: 2:00 PM</p>
+                        <p>Location: Tech Lab B</p>
+                        <span class="event-status rsvp">RSVP'd</span>
+                        <button class="view-details-btn" data-event-id="201">View Details</button>
+                        <button class="cancel-rsvp-btn" data-event-id="201">Cancel RSVP</button>
+                        <a href="#" class="add-to-calendar-link">Add to Calendar</a>
+                    </li>
+                    <li class="event-item interested">
+                        <h4>Campus Movie Night</h4>
+                        <p>Date: 2025-04-25, Time: 7:00 PM</p>
+                        <p>Location: University Grounds</p>
+                        <span class="event-status">Interested</span>
+                        <button class="view-details-btn" data-event-id="202">View Details</button>
+                        <button class="join-event-btn" data-event-id="202">Join Event</button>
+                        <a href="#" class="add-to-calendar-link">Add to Calendar</a>
+                    </li>
+                </ul>
+                <p id="no-upcoming-events" style="display:none;">No upcoming events.</p>
+            </div>
+            <div id="past-events">
+                <h3>Past Events</h3>
+                <ul class="event-list">
+                    <li class="event-item past">
+                        <h4>Freshers' Party</h4>
+                        <p>Date: 2025-04-01</p>
+                        <p>Location: Auditorium</p>
+                        <span class="event-status">Attended</span>
+                        <button class="view-details-btn" data-event-id="101">View Details</button>
+                    </li>
+                </ul>
+                <p id="no-past-events" style="display:none;">No past events.</p>
+            </div>
+        </section>
+
+        <div class="section-heading" data-section="explore-events">
+            <h2>Explore Events</h2>
+        </div>
+        <section id="explore-events" class="section-content">
+            <div class="event-filter">
+                <label for="filter-category">Category:</label>
+                <select id="filter-category">
+                    <option value="">All</option>
+                    <option value="workshop">Workshops</option>
+                    <option value="cultural">Cultural</option>
+                    <option value="sports">Sports</option>
+                    <option value="social">Social</option>
+                </select>
+                <input type="text" id="search-events" placeholder="Search events...">
+            </div>
+            <ul id="all-events-list" class="event-list">
+                <li class="event-item">
+                    <h4>Guest Lecture on AI</h4>
+                    <p>Date: 2025-04-12, Time: 10:00 AM</p>
+                    <p>Location: Seminar Hall 1</p>
+                    <button class="join-event-btn" data-event-id="301">Join Event</button>
+                    <button class="interested-btn" data-event-id="301">Interested</button>
+                    <button class="view-details-btn" data-event-id="301">View Details</button>
+                </li>
+                <li class="event-item cultural">
+                    <h4>Spring Festival Celebration</h4>
+                    <p>Date: 2025-04-20, Time: 6:00 PM</p>
+                    <p>Location: Open Grounds</p>
+                    <button class="join-event-btn" data-event-id="302">Join Event</button>
+                    <button class="interested-btn" data-event-id="302">Interested</button>
+                    <button class="view-details-btn" data-event-id="302">View Details</button>
+                </li>
+            </ul>
+            <p id="no-events-found" style="display:none;">No events found.</p>
+        </section>
+
+        <div class="section-heading" data-section="my-clubs">
+            <h2>My Clubs</h2>
+        </div>
+        <section id="my-clubs" class="section-content">
+            <ul class="club-list">
+                <li class="club-item">
+                    <h3>Coding Club</h3>
+                    <p>Brief description of the coding club...</p>
+                    <a href="#">View Club Page</a>
+                </li>
+                <li class="club-item">
+                    <h3>Debate Society</h3>
+                    <p>Brief description of the debate society...</p>
+                    <a href="#">View Club Page</a>
+                </li>
+            </ul>
+            <p id="no-clubs-joined" style="display:none;">You haven't joined any clubs yet.</p>
+            <button id="explore-clubs-btn">Explore Clubs</button>
+        </section>
+
+        <div class="section-heading" data-section="notifications">
+            <h2>Notifications</h2>
+        </div>
+        <section id="notifications" class="section-content">
+            <ul class="notification-list">
+                <li class="notification-item">
+                    <p>Reminder: Coding Workshop starts in 1 hour!</p>
+                    <small>1 hour ago</small>
+                </li>
+                <li class="notification-item unread">
+                    <p>New event: Spring Festival Celebration announced!</p>
+                    <small>2 hours ago</small>
+                </li>
+            </ul>
+            <p id="no-notifications" style="display:none;">No new notifications.</p>
+        </section>
+
+        <div class="section-heading" data-section="settings">
+            <h2>Settings</h2>
+        </div>
+        <section id="settings" class="section-content">
+            <p>User profile settings will go here (e.g., edit profile, notification preferences).</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 ClubHub - Our Campus Community Platform</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sectionHeadings = document.querySelectorAll('.section-heading');
+            const sectionContents = document.querySelectorAll('.section-content');
+
+            sectionHeadings.forEach(heading => {
+                heading.addEventListener('click', function() {
+                    const sectionId = this.dataset.section;
+                    const clickedContent = document.getElementById(sectionId);
+
+                    // Close all other open sections
+                    sectionContents.forEach(content => {
+                        if (content !== clickedContent && content.classList.contains('open')) {
+                            content.classList.remove('open');
+                            const correspondingHeading = document.querySelector(`.section-heading[data-section="${content.id}"]`);
+                            if (correspondingHeading) {
+                                correspondingHeading.classList.remove('open');
+                            }
+                        }
+                    });
+
+                    // Toggle the clicked section
+                    if (clickedContent) {
+                        this.classList.toggle('open');
+                        clickedContent.classList.toggle('open');
+                    }
+                });
+            });
+
+            // Keep your existing JavaScript for event handling, etc.
+            const joinButtons = document.querySelectorAll('.join-event-btn');
+            joinButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const eventId = this.dataset.eventId;
+                    alert(`Joining event with ID: ${eventId}`);
+                    // In a real application, update UI or make an API call
+                });
+            });
+
+            const interestedButtons = document.querySelectorAll('.interested-btn');
+            interestedButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const eventId = this.dataset.eventId;
+                    alert(`Marking event with ID: ${eventId} as interested`);
+                    // In a real application, update UI or make an API call
+                });
+            });
+
+            const exploreClubsBtn = document.getElementById('explore-clubs-btn');
+            if(exploreClubsBtn){
+                exploreClubsBtn.addEventListener('click', function() {
+                    alert('Navigating to Explore Clubs page (implementation needed)');
+                    // In a real application, redirect the user
+                });
+            }
+
+            const categoryFilter = document.getElementById('filter-category');
+            const searchInput = document.getElementById('search-events');
+            const allEventsList = document.getElementById('all-events-list');
+            const noEventsFoundMessage = document.getElementById('no-events-found');
+
+            if(categoryFilter && searchInput && allEventsList && noEventsFoundMessage){
+                categoryFilter.addEventListener('change', filterAndSearchEvents);
+                searchInput.addEventListener('input', filterAndSearchEvents);
+            }
+
+            function filterAndSearchEvents() {
+                const selectedCategory = categoryFilter.value.toLowerCase();
+                const searchTerm = searchInput.value.toLowerCase();
+                let eventFound = false;
+
+                Array.from(allEventsList.children).forEach(eventItem => {
+                    const categoryMatch = eventItem.classList.contains(selectedCategory) || selectedCategory === '';
+                    const titleMatch = eventItem.querySelector('h4').textContent.toLowerCase().includes(searchTerm);
+                    const descriptionMatch = eventItem.querySelector('p').textContent.toLowerCase().includes(searchTerm);
+
+                    if (categoryMatch && (titleMatch || descriptionMatch)) {
+                        eventItem.style.display = '';
+                        eventFound = true;
+                    } else {
+                        eventItem.style.display = 'none';
+                    }
+                });
+
+                noEventsFoundMessage.style.display = eventFound ? 'none' : 'block';
+            }
+
+            function generateGoogleCalendarLink(event) {
+                const eventTitle = event.target.dataset.eventTitle;
+                const eventDate = event.target.dataset.eventDate;
+                const eventTime = event.target.dataset.eventTime;
+                const eventLocation = event.target.dataset.eventLocation;
+
+                const startDate = eventDate.replace(/-/g, '') + 'T' + eventTime.replace(/:/g, '') + '00';
+                const endDate = startDate;
+
+                const details = `Event: ${eventTitle}\nDate: ${eventDate}\nTime: ${eventTime}\nLocation: ${eventLocation}`;
+                const calendarUrl = encodeURI([
+                    'https://www.google.com/calendar/render',
+                    '?action=TEMPLATE',
+                    `&text=${eventTitle}`,
+                    `&dates=${startDate}/${endDate}`,
+                    `&details=${details}`,
+                    `&location=${eventLocation}`,
+                    '&sf=true&output=xml'
+                ].join(''));
+
+                window.open(calendarUrl, '_blank');
+                event.preventDefault();
+            }
+
+            const calendarLinks = document.querySelectorAll('.add-to-calendar-link');
+            calendarLinks.forEach(link => {
+                link.addEventListener('click', generateGoogleCalendarLink);
+            });
+        });
+    </script>
+</body>
+</html>

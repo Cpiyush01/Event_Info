@@ -1,0 +1,359 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", serif;
+}
+
+body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    background-color: #111;
+    color: white;
+    display: flex;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 300px;
+    background-color: rgba(255, 255, 255, 0.1);
+    height: 100vh;
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.5);
+    transition: all 0.3s linear;
+    overflow-y: auto;
+    position: fixed;
+    left: -350px;
+}
+
+.sidebar.active {
+    left: 0;
+}
+
+.sidebar .logo {
+    padding: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.5);
+}
+
+.sidebar .menu {
+    padding: 20px;
+}
+
+.sidebar .menu li {
+    list-style: none;
+    margin: 10px 0;
+    padding: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.sidebar .menu li:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+}
+
+.sidebar .menu li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.sidebar .menu li i {
+    margin-right: 10px;
+}
+
+.sidebar .menu li ul {
+    display: none; /* Hide sub-options by default */
+    padding-left: 20px; /* Indent sub-options */
+}
+
+.sidebar .menu li.active ul {
+    display: block; /* Show sub-options when active */
+}
+
+.sidebar .social_media {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.sidebar .social_media i {
+    color: white;
+    opacity: 0.5;
+    transition: all 0.3s ease;
+}
+
+.sidebar .social_media i:hover {
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+/* Main Content */
+.main {
+    flex: 1;
+    padding: 20px;
+    margin-left: 0;
+    transition: margin-left 0.3s linear;
+}
+
+.main.active {
+    margin-left: 300px;
+}
+
+/* Hero Section */
+.hero {
+position: relative;
+height: 350px;
+padding: 40px;
+border-radius: 10px;
+display: flex;
+flex-direction: column;
+justify-content: flex-end;
+overflow: hidden; /* Ensure video doesn't overflow */
+}
+
+.hero video {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+object-fit: cover; /* Ensure video covers the entire area */
+z-index: -1; /* Place video behind the content */
+}
+
+.hero h1, .hero p, .hero .buttons {
+position: relative;
+z-index: 1; /* Ensure content is above the video */
+}
+/* Movie Sections */
+h2 {
+    margin-top: 20px;
+}
+
+.movie-list {
+    display: flex;
+    overflow-x: auto;
+    padding: 10px 0;
+}
+
+.movie-list::-webkit-scrollbar {
+    display: none;
+}
+
+.movie {
+    width: 150px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.movie:hover {
+    transform: scale(1.1);
+}
+
+.movie video {
+    width: 100%;
+    border-radius: 5px;
+}
+
+/* Toggle Button */
+.btn_one {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.btn_two {
+
+    top: 20px;
+    right: 20px;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s linear;
+    
+}
+
+.btn_two.active {
+    opacity: 1;
+}
+body {
+overflow-x: hidden; /* 🔒 Prevents horizontal scrolling */
+}
+
+
+.main_box {
+    background: url(./images/photo.jpg);
+    height: 100vh;
+    background-size: cover;
+}
+
+.sidebar_menu .logo a {
+    font-size: 18px !important;
+}
+.sidebar_menu .menu li ul {
+    padding-left: 20px; /* Indent sub-options */
+    display: none; /* Hide sub-options by default */
+}
+
+.sidebar_menu .menu li.active ul {
+    display: block; /* Show sub-options when active */
+}
+
+.btn_one {
+    
+    color: white;
+    font-size: 30px;
+    font-weight: 700;
+    position: absolute;
+    left: 16px;
+    line-height: 40px;
+    cursor: pointer;
+    transition: all 0.3s linear;
+    position: fixed;
+}
+
+.sidebar_menu {
+    position: fixed;
+    left: -350px;
+    height: 100vh;
+    width: 300px;
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.5);
+    transition: all 0.3s linear;
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+
+.sidebar_menu .logo {
+    position: absolute;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.5);
+}
+
+.sidebar_menu .logo a {
+    position: absolute;
+    left: 50px;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.sidebar_menu .btn_two i {
+    color: gray;
+    font-size: 25px;
+    line-height: 60px;
+    position: absolute;
+    left: 275px;
+    opacity: 0;
+    cursor: pointer;
+    transition: all 0.3s linear;
+}
+
+.sidebar_menu .menu {
+    color: rgb(51, 33, 33);
+    position: absolute;
+    width: 100%;
+    top: 80px;
+    padding-bottom: 100px; /* Add padding to ensure space for social media icons */
+}
+
+.sidebar_menu .menu li {
+    margin-top: 6px;
+    padding: 14px 20px;
+     
+}
+
+
+
+.sidebar_menu .menu i,
+.sidebar_menu .menu a {
+    color: rgb(10, 10, 10);
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.sidebar_menu .menu i {
+    padding-right: 8px;
+}
+
+.sidebar_menu .social_media {
+    position: fixed; /* Fix social media icons at the bottom */
+    left: 25%;
+    bottom: 20px;
+}
+
+.sidebar_menu .social_media i {
+    color: black;
+    font-weight: bolder;
+    font-size: 20px;
+    opacity: 0.5;
+    padding: 0 5px;
+}
+
+#check {
+    display: none;
+}
+
+.sidebar_menu .menu li:hover {
+    box-shadow: 0 0 4px rgba(255, 255, 255, 0.5);
+}
+
+.btn_one i:hover {
+    font-size: 35px;
+}
+
+.btn_two i:hover {
+    font-size: 30px;
+}
+
+.sidebar_menu .social_media i:hover {
+    opacity: 1;
+    transform: scale(1.5);
+}
+
+#check:checked ~ .sidebar_menu {
+    left: 0;
+}
+
+#check:checked ~ .btn_one i {
+    opacity: 0;
+}
+
+#check:checked ~ .sidebar_menu .btn_two i {
+    opacity: 1;
+}
+
+.content {
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 600px;
+    color: #f8fc0c;
+}
+
+.content h1 {
+    margin-top: 0;
+    font-size: 38px;
+}
+
+#btn_two{
+    margin-right: 1440px;
+    
+}

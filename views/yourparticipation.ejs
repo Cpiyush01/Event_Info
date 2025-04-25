@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Participations</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(45deg, #a18cd1, #fbc2eb);
+      margin: 0;
+      padding: 20px;
+      overflow-x: hidden;
+      color: #333;
+    }
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+      animation: fadeIn 1s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    h2 {
+      color: #5a3e85;
+      text-align: center;
+      margin-bottom: 30px;
+      font-weight: 700;
+    }
+    .events-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .event-box {
+      position: relative;
+      width: 220px;
+      height: 220px;
+      background: linear-gradient(45deg, #2c3e50, #3498db);
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.6s ease-out, background 0.6s ease-out;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 15px;
+    }
+    .event-box:hover {
+      transform: scale(1.1);
+      background: linear-gradient(45deg, #22313f, #2980b9);
+    }
+    .event-details {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      color: #fff;
+      padding: 15px;
+      box-sizing: border-box;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.6s ease-out, visibility 0.6s ease-out;
+      overflow-y: auto;
+    }
+    .event-box:hover .event-details {
+      opacity: 1;
+      visibility: visible;
+    }
+    .event-title {
+      font-weight: 700;
+      font-size: 18px;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+    .event-date {
+      font-size: 16px;
+      font-weight: bold;
+      color: #00ffff; /* Electric Cyan for a lightning effect */
+    }
+    .button {
+      display: inline-block;
+      padding: 8px 15px;
+      background: #4caf50;
+      color: white;
+      border-radius: 5px;
+      text-decoration: none;
+      margin-top: 10px;
+      transition: background 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .button:hover {
+      background: #388e3c;
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Your Participations</h2>
+    <div class="events-grid">
+      <!-- Event 1 -->
+      <div class="event-box">
+        <div class="event-content">
+          <div class="event-title">🎉 Tech Fest</div>
+          <div class="event-date">Mar 25, 2025</div>
+        </div>
+        <div class="event-details">
+          <p><strong>Location:</strong> University Auditorium</p>
+          <p><strong>Description:</strong> A grand festival of technology showcasing AI, Robotics, and more!</p>
+        </div>
+      </div>
+      <!-- Event 2 -->
+      <div class="event-box">
+        <div class="event-content">
+          <div class="event-title">⚽ Football</div>
+          <div class="event-date">Apr 10, 2025</div>
+        </div>
+        <div class="event-details">
+          <p><strong>Location:</strong> Sports Complex</p>
+          <p><strong>Description:</strong> Compete against top college teams and show your football skills!</p>
+          
+        </div>
+      </div>
+      <!-- Event 3 -->
+      <div class="event-box">
+        <div class="event-content">
+          <div class="event-title">🎭 Drama Night</div>
+          <div class="event-date">May 05, 2025</div>
+        </div>
+        <div class="event-details">
+          <p><strong>Location:</strong> Main Theatre Hall</p>
+          <p><strong>Description:</strong> An evening of spectacular performances by talented drama artists.</p>
+         
+        </div>
+      </div>
+      <!-- Event 4 -->
+      <div class="event-box">
+        <div class="event-content">
+          <div class="event-title">🎵 Music Concert</div>
+          <div class="event-date">Jun 15, 2025</div>
+        </div>
+        <div class="event-details">
+          <p><strong>Location:</strong> Open Air Arena</p>
+          <p><strong>Description:</strong> Featuring live bands and solo performances from various artists.</p>
+        </div>
+      </div>
+      <!-- Event 5 -->
+      <div class="event-box">
+        <div class="event-content">
+          <div class="event-title">🎨 Art Expo</div>
+          <div class="event-date">Jul 20, 2025</div>
+        </div>
+        <div class="event-details">
+          <p><strong>Location:</strong> College Art Gallery</p>
+          <p><strong>Description:</strong> A showcase of stunning artworks by students and renowned artists.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

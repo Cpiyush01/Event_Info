@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Participant List</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      padding: 20px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: center;
+      border: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #007BFF;
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+  </style>
+</head>
+<body onload="loadParticipants()">
+  <h2>Participant Details</h2>
+  <table id="participant-table"></table>
+
+  <script>
+    function displayParticipants(participants) {
+      const table = document.getElementById("participant-table");
+
+      if (!participants || participants.length === 0) {
+        table.innerHTML = `
+          <thead>
+            <tr><th colspan="6">No participants found</th></tr>
+          </thead>
+        `;
+        return;
+      }
+
+      table.innerHTML = `
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Branch</th>
+            <th>Section</th>
+            <th>Reg. Number</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${participants.map(p => `
+            <tr>
+              <td>${p.name}</td>
+              <td>${p.regno}</td>
+              <td>${p.email}</td>
+              <td>${p.phone}</td>
+              <td>${p.branch}</td>
+              <td>${p.section}</td>
+            </tr>
+          `).join('')}
+        </tbody>
+      `;
+    }
+
+    function loadParticipants() {
+      const data = localStorage.getItem("participants");
+      const participants = data ? JSON.parse(data) : [];
+      displayParticipants(participants);
+    }
+  </script>
+</body>
+</html>

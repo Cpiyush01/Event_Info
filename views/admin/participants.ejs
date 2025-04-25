@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Participants - <%= eventName %> | Vignan Vibez</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f0f4f8;
+      color: #333;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    table th, table td {
+      padding: 10px;
+      border: 1px solid #ddd;
+      text-align: left;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Participants for <%= eventName %></h1>
+  </header>
+
+  <div class="container">
+    <% if (participants.length > 0) { %>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% participants.forEach(participant => { %>
+            <tr>
+              <td><%= participant.name %></td>
+              <td><%= participant.email %></td>
+              <td><%= participant.phone %></td>
+            </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    <% } else { %>
+      <p>No participants found for this event.</p>
+    <% } %>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Vignan Vibez. All rights reserved.</p>
+    <p>Contact: <a href="mailto:vignanvibez@college.edu">vignanvibez@college.edu</a></p>
+  </footer>
+</body>
+</html>

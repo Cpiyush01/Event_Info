@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register for Hackathon | Vignan Vibez</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      color: #fff;
+    }
+
+    .glass-form {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+      border-radius: 16px;
+      padding: 40px 30px;
+      width: 100%;
+      max-width: 550px;
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .glass-form h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 28px;
+      color: #ffffff;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: 500;
+      font-size: 15px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-top: 8px;
+      border-radius: 10px;
+      border: none;
+      font-size: 15px;
+      background-color: rgba(255, 255, 255, 0.15);
+      color: #fff;
+      outline: none;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #ccc;
+    }
+
+    select {
+      appearance: none;
+      background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D'10'%20height%3D'5'%20xmlns%3D'http%3A//www.w3.org/2000/svg'%3E%3Cpath%20d%3D'M0%200l5%205%205-5z'%20fill%3D'%23ccc'%20/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 10px center;
+      background-size: 10px 5px;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      margin-top: 25px;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: bold;
+      background: linear-gradient(135deg, #00c6ff, #0072ff);
+      color: #fff;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    button:hover {
+      background: linear-gradient(135deg, #0072ff, #00c6ff);
+      transform: scale(1.02);
+    }
+
+    .success-message {
+      margin-top: 20px;
+      color: #00ffcc;
+      text-align: center;
+      display: none;
+    }
+
+    @media (max-width: 600px) {
+      .glass-form {
+        padding: 30px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="glass-form">
+    <h1>💡 Register for <%= eventName %></h1>
+    <form action="/submit-registration" method="POST">
+      <input type="hidden" name="event" value="<%= eventName %>">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="text" name="regno" placeholder="Registration No." required />
+      <input type="email" name="email" placeholder="Email Address" required /> <!-- ✅ ADD THIS LINE -->
+      <input type="text" name="phone" placeholder="Phone Number" required />
+      <input type="text" name="section" placeholder="Section" required />
+      <input type="text" name="branch" placeholder="Branch" required />
+      <input type="text" name="department" placeholder="Department" required />
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+  
+
+  <script>
+    document.getElementById("hackathonForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      // Add your backend submission logic here
+      document.getElementById("successMessage").style.display = "block";
+      this.reset();
+    });
+  </script>
+</body>
+</html>

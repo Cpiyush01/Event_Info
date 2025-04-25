@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Participant List</title>
+</head>
+<body onload="loadParticipants()">
+  <h2>Participant Details</h2>
+  <table id="participant-table" border="1" cellpadding="10" cellspacing="0"></table>
+
+  <script>
+    function displayParticipants(participants) {
+      const table = document.getElementById("participant-table");
+
+      if (!participants || participants.length === 0) {
+        table.innerHTML = `
+          <thead>
+            <tr><th colspan="3">No participants found</th></tr>
+          </thead>
+        `;
+        return;
+      }
+
+      table.innerHTML = `
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${participants.map(p => `
+            <tr>
+              <td>${p.name}</td>
+              <td>${p.email}</td>
+              <td>${p.phone}</td>
+            </tr>
+          `).join('')}
+        </tbody>
+      `;
+    }
+
+    function loadParticipants() {
+      const data = localStorage.getItem("participants");
+      const participants = data ? JSON.parse(data) : [];
+      displayParticipants(participants);
+    }
+  </script>
+</body>
+</html>

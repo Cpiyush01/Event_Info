@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exterior College Events</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background: #f0f4f8;
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header, footer {
+      background-color: #0d47a1;
+      color: #fff;
+      padding: 20px 40px;
+      text-align: center;
+    }
+
+    header .logo {
+      font-size: 1.8rem;
+      font-weight: 600;
+    }
+
+    .container {
+      flex: 1;
+      max-width: 1200px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2.5rem;
+      color: #0d47a1;
+    }
+
+    .event-card {
+      background: #fff;
+      border-left: 6px solid #0d47a1;
+      margin-bottom: 25px;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease;
+    }
+
+    .event-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .event-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #0d47a1;
+      margin-bottom: 10px;
+    }
+
+    .event-details {
+      margin: 6px 0;
+      font-size: 0.95rem;
+      color: #444;
+    }
+
+    button {
+      margin-top: 10px;
+      background-color: #1565c0;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0d47a1;
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 10;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-content {
+      background-color: white;
+      margin: 10% auto;
+      padding: 30px;
+      width: 90%;
+      max-width: 450px;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      position: relative;
+    }
+
+    .modal-content h2 {
+      color: #0d47a1;
+      margin-bottom: 20px;
+    }
+
+    .modal-content label {
+      display: block;
+      margin-top: 15px;
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    .modal-content input,
+    .modal-content textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 0.95rem;
+    }
+
+    .close {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 1.5rem;
+      color: #999;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      color: #000;
+    }
+
+    footer p {
+      font-size: 0.9rem;
+      margin: 5px 0;
+    }
+
+    @media (max-width: 768px) {
+      .event-title {
+        font-size: 1.2rem;
+      }
+
+      .modal-content {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Vignan Vibez</div>
+</header>
+
+<div class="container" id="eventList">
+  <h1>Exterior College Events</h1>
+  <!-- Event cards will be injected here by JS -->
+</div>
+
+<!-- Registration Modal -->
+<div id="registrationModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h2 id="formTitle">Register</h2>
+    <form id="regForm">
+      <label for="name">Your Name</label>
+      <input type="text" id="name" required />
+
+      <label for="email">Your Email</label>
+      <input type="email" id="email" required />
+
+      <label for="college">College Name</label>
+      <input type="text" id="college" required />
+
+      <label for="reason">Why do you want to attend?</label>
+      <textarea id="reason" rows="3" required></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</div>
+
+<footer>
+  <p>&copy; 2025 Vignan Vibez. All rights reserved.</p>
+  <p>Contact: <a href="mailto:vignanvibez@college.edu" style="color:#bbdefb;">vignanvibez@college.edu</a></p>
+</footer>
+
+<script>
+  const events = [
+    {
+      title: "Hackathon 2025",
+      date: "April 15, 2025",
+      college: "IIT Hyderabad",
+      description: "24-hour coding sprint with exciting prizes and networking opportunities."
+    },
+    {
+      title: "Tech Fest - InnoVerse",
+      date: "April 22, 2025",
+      college: "NIT Trichy",
+      description: "Workshops, paper presentations, and coding contests across various domains."
+    },
+    {
+      title: "Eco Awareness Rally",
+      date: "May 3, 2025",
+      college: "BITS Pilani",
+      description: "Promoting environmental sustainability through engaging student-led events."
+    }
+  ];
+
+  const container = document.getElementById('eventList');
+  const modal = document.getElementById('registrationModal');
+  const formTitle = document.getElementById('formTitle');
+  const regForm = document.getElementById('regForm');
+
+  events.forEach(event => {
+    const card = document.createElement('div');
+    card.className = 'event-card';
+    card.innerHTML = `
+      <div class="event-title">${event.title}</div>
+      <div class="event-details"><strong>Date:</strong> ${event.date}</div>
+      <div class="event-details"><strong>College:</strong> ${event.college}</div>
+      <div class="event-details"><strong>Details:</strong> ${event.description}</div>
+      <button onclick="openModal('${event.title}')">Register</button>
+    `;
+    container.appendChild(card);
+  });
+
+  function openModal(title) {
+    formTitle.innerText = `Register for ${title}`;
+    modal.style.display = 'block';
+  }
+
+  function closeModal() {
+    modal.style.display = 'none';
+  }
+
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      closeModal();
+    }
+  }
+
+  regForm.onsubmit = function(e) {
+    e.preventDefault();
+    alert("Registration submitted successfully!");
+    closeModal();
+    regForm.reset();
+  }
+</script>
+
+</body>
+</html>

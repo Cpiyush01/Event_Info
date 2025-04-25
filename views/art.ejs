@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Art Event</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f4f6f8;
+      color: #333;
+    }
+    header {
+      background-color: #b30a1c;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .notification {
+      background-color: #ffcc00;
+      color: #b30a1c;
+      padding: 12px 0;
+      overflow: hidden;
+      position: relative;
+      height: 40px;
+    }
+    .scrolling-text {
+      position: absolute;
+      white-space: nowrap;
+      animation: scrollLeft 25s linear infinite;
+      font-weight: bold;
+      font-size: 18px;
+      color: red;
+    }
+    @keyframes scrollLeft {
+      0% { left: 100%; }
+      100% { left: -100%; }
+    }
+    .hero {
+      background: linear-gradient(90deg, #ff5f6d, #ffc371);
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+    .hero p {
+      font-size: 18px;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 20px;
+    }
+    .event-card {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      display: flex;
+      flex-wrap: wrap;
+      overflow: hidden;
+    }
+    .event-card img {
+      width: 100%;
+      max-width: 500px;
+      object-fit: cover;
+    }
+    .event-details {
+      flex: 1;
+      padding: 30px;
+    }
+    .event-details h2 {
+      color: #b30a1c;
+      margin-bottom: 10px;
+    }
+    .event-details p {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+    .event-details ul {
+      padding-left: 20px;
+    }
+    .event-details li {
+      margin-bottom: 8px;
+    }
+    .register-btn {
+      background-color: #b30a1c;
+      color: white;
+      padding: 12px 24px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      margin-top: 15px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .register-btn:hover {
+      background-color: #85020f;
+    }
+    footer {
+      background-color: #b30a1c;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <header>🎨 Vignan Vibes - Art Event</header>
+
+  <div class="notification">
+    <div class="scrolling-text">🎨 Don’t miss the Art Event! Register now!</div>
+  </div>
+
+  <div class="hero">
+    <h1>Creative Arts Fiesta 2025</h1>
+    <p>March 22 | Auditorium | 5:00 PM - 7:00 PM</p>
+  </div>
+
+  <div class="container">
+    <div class="event-card">
+      <img src="./images/art.jpg" alt="Art Event">
+      <div class="event-details">
+        <h2>Event Highlights</h2>
+        <p><strong>Place:</strong> Auditorium</p>
+        <p><strong>Time:</strong> 5:00 PM - 7:00 PM</p>
+        <ul>
+          <li>The art event will be held on <strong>March 22</strong>.</li>
+          <li>Participants will showcase live paintings, sketches, and digital art.</li>
+          <li><strong>Piyush</strong>, a national award-winning artist, will do a live demo.</li>
+          <li>Experience creativity, color, and culture all in one place.</li>
+          <li>Get a chance to win the <strong>Best Artist</strong> award voted by the audience!</li>
+        </ul>
+        <button class="register-btn" onclick="confirmAndRedirect('Art')">Register</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>© 2025 Vignan Vibes. All rights reserved.</footer>
+
+  <script>
+    window.onload = function () {
+      alert("🎨 Reminder: Art Event Today at 5:00 PM in the Auditorium! Register now.");
+    };
+
+    function confirmAndRedirect(eventName) {
+      if (confirm(`Are you sure you want to register for "${eventName}"?`)) {
+        window.location.href = `/register?event=${encodeURIComponent(eventName)}`;
+      }
+    }
+  </script>
+</body>
+</html>

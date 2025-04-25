@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hackathon Event</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f4f6f8;
+      color: #333;
+    }
+    header {
+      background-color: #003566;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .notification {
+      background-color: #ffcc00;
+      color: #003566;
+      padding: 12px 0;
+      overflow: hidden;
+      position: relative;
+      height: 40px;
+    }
+    .scrolling-text {
+      position: absolute;
+      white-space: nowrap;
+      animation: scrollLeft 25s linear infinite;
+      font-weight: bold;
+      font-size: 18px;
+    }
+    @keyframes scrollLeft {
+      0% { left: 100%; }
+      100% { left: -100%; }
+    }
+
+    .hero {
+      background: linear-gradient(90deg, #00b4d8, #0077b6);
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+    .hero p {
+      font-size: 18px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 20px;
+    }
+
+    .event-card {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      display: flex;
+      flex-wrap: wrap;
+      overflow: hidden;
+    }
+
+    .event-card img {
+      width: 100%;
+      max-width: 500px;
+      object-fit: cover;
+    }
+
+    .event-details {
+      flex: 1;
+      padding: 30px;
+    }
+
+    .event-details h2 {
+      color: #003566;
+      margin-bottom: 10px;
+    }
+
+    .event-details p {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .event-details ul {
+      padding-left: 20px;
+    }
+
+    .event-details li {
+      margin-bottom: 8px;
+    }
+
+    .register-btn {
+      background-color: #003566;
+      color: white;
+      padding: 12px 24px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      margin-top: 15px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .register-btn:hover {
+      background-color: #00509d;
+    }
+
+    footer {
+      background-color: #003566;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 500px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      position: relative;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 24px;
+      color: #aaa;
+      cursor: pointer;
+    }
+
+    .close-btn:hover {
+      color: #333;
+    }
+
+    .modal-content h3 {
+      margin-bottom: 20px;
+      color: #003566;
+    }
+
+    .modal-content label {
+      font-weight: 500;
+    }
+
+    .modal-content input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>💻 Vignan Vibes - 24-Hour Hackathon</header>
+
+  <div class="notification">
+    <div class="scrolling-text">💻 Don’t miss the 24-Hour Hackathon! Register now and win exciting prizes!</div>
+  </div>
+
+  <div class="hero">
+    <h1>Code Sprint 2025</h1>
+    <p>April 10 | Innovation Lab | 9:00 AM - 9:00 AM (Next Day)</p>
+  </div>
+
+  <div class="container">
+    <div class="event-card">
+      <img src="./images/hackathon.jpg" alt="Hackathon Event">
+      <div class="event-details">
+        <h2>Event Highlights</h2>
+        <p><strong>Place:</strong> Innovation Lab</p>
+        <p><strong>Time:</strong> 9:00 AM - 9:00 AM (Next Day)</p>
+        <ul>
+          <li>The Hackathon starts on <strong>April 10</strong>.</li>
+          <li>Build and pitch your innovative project in <strong>24 hours</strong>.</li>
+          <li>Special guest mentor: <strong>Nikhil</strong>, full-stack developer at Microsoft.</li>
+          <li>Winning teams get <strong>cash prizes and internship offers</strong>.</li>
+          <li>Network with fellow coders and tech leaders!</li>
+        </ul>
+        <button class="register-btn" onclick="confirmAndRedirect('Hackathon')">Register</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>© 2025 Vignan Vibes. All rights reserved.</footer>
+
+  <!-- Modal -->
+  
+  <script>
+    window.onload = function () {
+      alert("💻 Reminder: Hackathon starts at 9:00 AM on April 10! Gear up!");
+    };
+
+    function confirmAndRedirect(eventName) {
+      if (confirm(`Are you sure you want to register for "${eventName}"?`)) {
+        window.location.href = `/register?event=${encodeURIComponent(eventName)}`;
+      }
+    }
+  </script>
+
+</body>
+</html>

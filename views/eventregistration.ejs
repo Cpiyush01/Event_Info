@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Event Registration - Vignan Vibez</title>
+  <style>
+    /* 🌈 Gradient Background */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #f3e7ff, #e0f7ff);
+        background-size: cover;
+      background-image: url('images/bg.jpg');
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background-color: #ff80aa;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      font-size: 26px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    footer {
+      background-color: #ff80aa;
+      color: white;
+      text-align: center;
+      padding: 12px;
+      font-size: 14px;
+      margin-top: auto;
+    }
+
+    h2 {
+      text-align: center;
+      margin: 30px 0;
+      color: #4a148c;
+      font-size: 32px;
+    }
+
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 40px;
+      padding: 30px 50px;
+      justify-items: center;
+    }
+
+    .card {
+      width: 320px;
+      
+      height: 300px;
+      perspective: 1000px;
+    }
+
+    .card-inner {
+      width: 100%;
+      height: 100%;
+      transition: transform 0.8s ease;
+      transform-style: preserve-3d;
+      position: relative;
+    }
+
+    .card:hover .card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .card-front, .card-back {
+      position: absolute;
+      width: 110%;
+      height: 84%;
+      backface-visibility: hidden;
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      background: #f6e9e9;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .card-front h3 {
+    margin: -33px 0 8px;
+    font-size: 31px;
+    color: #4a148c;
+    text-align: center;
+    }
+
+    .card-front p {
+      font-size: 14.5px;
+      text-align: center;
+      color: #444;
+    }
+
+    .card-back {
+      transform: rotateY(180deg);
+      background-color: #f8f5ff;
+    }
+
+    .card-back .date {
+      font-size: 14px;
+      color: #555;
+    }
+
+    .card-back .status {
+      font-weight: bold;
+      margin-top: 10px;
+      font-size: 15px;
+    }
+
+    .register-btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #6c4ed6;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .register-btn:hover {
+      background-color: #4c2fa9;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <header>🎉 Vignan Vibez - Event Registration Portal</header>
+
+  <h2>📅 Upcoming Campus Events</h2>
+
+  <div class="events-grid">
+    <!-- Event Card 1 -->
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <h3>🚀 Hackathon 2024</h3>
+          <p>A 36-hour coding event where students build and pitch ideas.</p>
+        </div>
+        <div class="card-back">
+          <div class="date">📅 Last Date: March 30, 2024</div>
+          <div class="status" style="color: green;">🟢 Ongoing</div>
+          <button class="register-btn" onclick="confirmAndRedirect('Hackathon 2024')">Register</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Event Card 2 -->
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <h3>🎨 Art Fiesta</h3>
+          <p>Showcase your creativity through painting, sketching, and crafts.</p>
+        </div>
+        <div class="card-back">
+          <div class="date">📅 Last Date: April 5, 2024</div>
+          <div class="status" style="color: orange;">🟠 Upcoming</div>
+          <button class="register-btn" onclick="confirmAndRedirect('Art Fiesta')">Register</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Event Card 3 -->
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <h3>🏆 Sports Week</h3>
+          <p>Participate in cricket, football, volleyball and more.</p>
+        </div>
+        <div class="card-back">
+          <div class="date">📅 Last Date: April 10, 2024</div>
+          <div class="status" style="color: orange;">🟠 Upcoming</div>
+          <button class="register-btn" onclick="confirmAndRedirect('Sports Week')">Register</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Event Card 4 -->
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <h3>🎶 Music & Dance Night</h3>
+          <p>Solo and group performances, judged by celebrity guests.</p>
+        </div>
+        <div class="card-back">
+          <div class="date">📅 Last Date: April 12, 2024</div>
+          <div class="status" style="color: orange;">🟠 Upcoming</div>
+          <button class="register-btn" onclick="confirmAndRedirect('Music & Dance Night')">Register</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 Vignan Vibez | All rights reserved 🌟
+  </footer>
+
+  <script>
+    function confirmAndRedirect(eventName) {
+      if (confirm(`Are you sure you want to register for "${eventName}"?`)) {
+        window.location.href = `/register?event=${encodeURIComponent(eventName)}`;
+      }
+    }
+  </script>
+
+</body>
+</html>

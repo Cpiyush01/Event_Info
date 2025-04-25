@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard - Generate Certificate</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f5f5f5;
+      display: flex;
+    }
+
+    .sidebar {
+      width: 220px;
+      background-color: #311b92;
+      color: white;
+      height: 100vh;
+      position: fixed;
+      top: 0;
+      left: 0;
+      padding-top: 20px;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    }
+
+    .sidebar h2 {
+      text-align: center;
+      font-size: 20px;
+      margin-bottom: 30px;
+      color: #fff;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 12px 20px;
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      transition: background 0.3s;
+    }
+
+    .sidebar a:hover {
+      background-color: #512da8;
+    }
+
+    .main-content {
+      margin-left: 220px;
+      padding: 20px;
+      width: 100%;
+    }
+
+    header {
+      background-color: #512da8;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 30px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: #512da8;
+      margin-bottom: 20px;
+    }
+
+    input, textarea, button {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    button {
+      background-color: #512da8;
+      color: white;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #311b92;
+    }
+
+    footer {
+      margin-top: 40px;
+      text-align: center;
+      padding: 15px;
+      background-color: #eee;
+      color: #555;
+    }
+
+    .section-title {
+      font-size: 18px;
+      margin-bottom: 20px;
+      color: #512da8;
+    }
+
+    .generated-certificates-list ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .generated-certificates-list li {
+      margin-bottom: 10px;
+      background-color: #f0f0f0;
+      padding: 10px;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .admin-info {
+      margin-top: 20px;
+      background-color: #f5f5f5;
+      padding: 15px;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Main Content -->
+  <div class="main-content">
+
+    <div class="container" id="generate">
+      <h2>Generate Certificate</h2>
+      <form action="/admin/certificate" method="POST">
+        <label for="name">Participant Name:</label>
+        <input type="text" name="name" id="name" placeholder="Enter participant's name" required />
+
+        <label for="event">Event Name:</label>
+        <input type="text" name="event" id="event" placeholder="Enter event name" required />
+
+        <label for="date">Event Date:</label>
+        <input type="date" name="date" id="date" required />
+
+        <label for="email">Recipient Email:</label>
+        <input type="email" name="email" id="email" placeholder="Enter participant's email" required />
+
+        <button type="submit">Generate & Send Certificate</button>
+      </form>
+    </div>
+
+
+
+   
+
+    <footer>
+      &copy; <%= new Date().getFullYear() %> Your Admin Panel
+    </footer>
+  </div>
+
+</body>
+</html>

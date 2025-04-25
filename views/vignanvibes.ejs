@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIGNAN VIBEZ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/photo.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="logo">Dashboard</div>
+        <div class="menu">
+            <ul>
+                <li onclick="toggleSubOptions(event)">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    <a href="#">Events</a>
+                    <ul>
+                        <li><a href="/sports">Sports</a></li>
+                        <li><a href="/culturals">Culturals</a></li>
+                        <li><a href="/others">Others</a></li>
+                    </ul>
+                </li>
+                <li onclick="toggleSubOptions(event)">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    <a href="#">CLUB</a>
+                    <ul>
+                        <li><a href="/nss">NSS</a></li>
+                        <li><a href="/sac">SAC</a></li>
+                        <li><a href="/ncc">NCC</li>
+                    
+                    </ul>
+                </li>
+                <li onclick="toggleSubOptions(event)">
+                    <i class="fa-solid fa-map-marker-alt"></i>
+                    <a href="/exteriorevents">Exterior Events</a>
+                    <ul>
+                        <li><a href="/otherclg">Other clg</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <i class="fa-solid fa-calendar-days"></i>
+                    <a href="/eventregistration">Event Registration</a>
+                </li>
+                <li>
+                    <i class="fa-solid fa-store"></i>
+                    <a href="/yourparticipation">Your Participations</a>
+                </li>
+
+                <li>
+                    <i class="fa-solid fa-user"></i>
+                    <a href="/profile">Your Profile</a>
+                </li>
+
+            </ul>
+        </div>
+        <div class="social_media">
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main" id="main">
+        <!-- Toggle Button -->
+        <div class="btn_one" id="btn_one">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+        <div class="btn_two" id="btn_two">
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+
+        <!-- Hero Section -->
+<div class="hero">
+    <div class="slider-container">
+        <video class="slide" autoplay muted loop>
+            <source src="videos/cricket.mp4" type="video/mp4">
+        </video>
+        <video class="slide" autoplay muted loop>
+            <source src="videos/badmointon.mp4.mp4" type="video/mp4">
+        </video>
+        <video class="slide" autoplay muted loop>
+            <source src="videos/khokho.mp4" type="video/mp4">
+        </video>
+        <video class="slide" autoplay muted loop>
+            <source src="videos/dancing.mp4" type="video/mp4">
+        </video>
+        <video class="slide" autoplay muted loop>
+            <source src="videos/singing.mp4" type="video/mp4">
+        </video>
+    </div>
+    
+    <h1>Welcome <span>Vignan's SuperStar</span></h1>
+    <p>Get Relief from the stressful academics</p>
+    <div class="buttons">
+        <button class="play">Events Today</button>
+        <button class="trailer">Events in a Week</button>
+   </div>
+</div>
+
+<!-- Movie Sections -->
+        <!-- Movie Sections -->
+        <h2>Culturals</h2>
+        <div class="movie-list" id="new-this-week">
+            <!-- Example Video Items -->
+            <div class="movie-item">
+                <video controls width="250" >
+                    <source src="videos/singing.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p>Singing</p>
+            </div>
+            <div class="movie-item">
+                <video controls width="250">
+                    <source src="videos/dancing.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p>Dancing</p>
+            </div>
+            <div class="movie-item">
+                <video controls width="250">
+                    <source src="videos/concert.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p>Concert</p>
+            </div>
+            <div class="movie-item">
+                <video controls width="250">
+                    <source src="videos/cse fest.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p>CSE-FEST</p>
+            </div>
+            <div class="movie-item">
+                <video controls width="250">
+                    <source src="videos/Hackathon.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p>Hackathon</p>
+            </div>
+            <div class="movie-item">
+                <video controls width="250">
+                    <source src="videos/theatre.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p>Theatre</p>
+            </div>
+        </div>
+
+        <h2>Sports</h2>
+        <div class="movie-list" id="trending-now">
+            <!-- s Here -->
+            <div class="movie-item">
+                <video controls width="250">
+                    <source src="videos/badmointon.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p>badminton</p>
+            </div>
+            <div class="movie-item">
+                <video controls width="250">
+                    <source src="videos/cricket.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p>Cricket</p>
+            </div>
+            <div class="movie-item">
+                <video controls width="250">
+                    <source src="videos/football.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p> Football </p>
+            </div>
+            <div class="movie-item">
+                <video controls width="250">
+                    <source src="videos/throwball.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p>basketball </p>
+            </div>
+            <div class="movie-item">
+                <video controls width="250">
+                    <source src="videos/kabbadi.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p> kabbadi</p>
+            </div>
+            <div class="movie-item">
+                <video controls width="250">
+                    <source src="videos/khokho.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p> kho-kho</p>
+            </div>
+        </div>
+    </div>
+
+
+     <script>
+        // Toggle Sidebar
+        const sidebar = document.getElementById("sidebar");
+        const main = document.getElementById("main");
+        const btnOne = document.getElementById("btn_one");
+        const btnTwo = document.getElementById("btn_two");
+
+        btnOne.addEventListener("click", () => {
+            sidebar.classList.toggle("active");
+            main.classList.toggle("active");
+            btnTwo.classList.toggle("active");
+        });
+
+        btnTwo.addEventListener("click", () => {
+            sidebar.classList.remove("active");
+            main.classList.remove("active");
+            btnTwo.classList.remove("active");
+        });
+
+        // Toggle Sub-Options
+        function toggleSubOptions(event) {
+            event.stopPropagation();
+            const parentLi = event.currentTarget;
+            parentLi.classList.toggle("active");
+        }
+        const slides = document.querySelectorAll(".slide");
+    let currentSlide = 0;
+
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.style.display = i === index ? "block" : "none";
+        });
+    }
+
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+    }
+
+    showSlide(currentSlide);
+    setInterval(nextSlide, 10000); // Change every 3 seconds
+    </script>
+    
+</body>
+</html>
